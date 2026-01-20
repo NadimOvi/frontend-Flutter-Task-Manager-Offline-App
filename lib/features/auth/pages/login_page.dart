@@ -26,7 +26,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void loginUser() {
-    if (formKey.currentState!.validate()) {}
+    if (formKey.currentState!.validate()) {
+      context.read<AuthCubit>().login(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+    }
   }
 
   @override
